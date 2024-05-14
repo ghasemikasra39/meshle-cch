@@ -1,7 +1,7 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
-  Counter: undefined;
+  AddDevice: undefined;
   Home: undefined;
 };
 

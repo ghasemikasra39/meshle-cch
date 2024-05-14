@@ -1,19 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
-
+import {ScrollView, StatusBar, StyleSheet, useColorScheme} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Provider} from 'react-redux';
 import {store} from './app/store';
@@ -29,7 +16,7 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaProvider>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
@@ -42,7 +29,7 @@ function App(): React.JSX.Element {
           <AppNavigator />
         </ScrollView>
       </Provider>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
