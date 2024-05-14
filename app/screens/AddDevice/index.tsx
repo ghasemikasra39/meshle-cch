@@ -18,8 +18,15 @@ import {useAddDevice} from './hooks/useAddDevice';
 const BUTTON_GROUP = ['HSV Device', 'Switch Device'];
 
 export const AddDevice = (_: AddDeviceProps) => {
-  const {goToNextSlide, swiperRef} = useAddDevice();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const {
+    goToNextSlide,
+    swiperRef,
+    selectedIndex,
+    setSelectedIndex,
+    deviceName,
+    setDeviceName,
+  } = useAddDevice();
+
   return (
     <Swiper
       ref={swiperRef}
@@ -35,7 +42,11 @@ export const AddDevice = (_: AddDeviceProps) => {
         />
       </View>
       <View style={styles.slide}>
-        <NameSlide goToNextSlide={goToNextSlide} />
+        <NameSlide
+          goToNextSlide={goToNextSlide}
+          deviceName={deviceName}
+          setDeviceName={setDeviceName}
+        />
       </View>
       <View style={styles.slide}>
         <LoadingSlide goToNextSlide={goToNextSlide} />

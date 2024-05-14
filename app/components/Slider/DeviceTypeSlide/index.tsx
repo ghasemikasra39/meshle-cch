@@ -5,7 +5,7 @@ import {Text} from '@rneui/themed';
 import {DeviceTypeSlideProps} from './types.ts';
 import {styles} from './styles.ts';
 
-const HEADER_TITLE = 'Device Type Slide';
+const HEADER_TITLE = 'What type of device is it?';
 const BUTTON_TITLE = 'Next';
 
 export const DeviceTypeComponent = ({

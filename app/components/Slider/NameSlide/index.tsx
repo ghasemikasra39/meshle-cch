@@ -1,14 +1,42 @@
-import {Text, View} from 'react-native';
-import {Button} from '@rneui/themed';
+import {View, KeyboardAvoidingView, Platform} from 'react-native';
+import {Button, Text, Input} from '@rneui/themed';
 import React from 'react';
 import {NameSlideProps} from './types.ts';
+import {styles} from './styles.ts';
 
-export const NameSlideComponent = ({goToNextSlide}: NameSlideProps) => {
+const HEADER_TITLE = 'What is the device name?';
+const BUTTON_TITLE = 'Next';
+
+export const NameSlideComponent = ({
+  goToNextSlide,
+  deviceName,
+  setDeviceName,
+}: NameSlideProps) => {
   return (
-    <View>
-      <Text>Device Name Slide</Text>
-      <Button title="Next" onPress={goToNextSlide} />
-    </View>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={20}>
+      <Text h4 style={styles.header}>
+        {HEADER_TITLE}
+      </Text>
+      <View style={styles.inputContainer}>
+        <Input
+          placeholder="Device name"
+          value={deviceName}
+          onChangeText={setDeviceName}
+          inputContainerStyle={styles.inputContainerStyle}
+          inputStyle={styles.inputStyle}
+        />
+      </View>
+      <View style={styles.nextButtonContainer}>
+        <Button
+          title={BUTTON_TITLE}
+          onPress={goToNextSlide}
+          buttonStyle={styles.nextButton}
+        />
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 
