@@ -1,8 +1,9 @@
 import {GestureResponderEvent} from 'react-native';
+import Swiper from 'react-native-swiper';
 
 export type UseAddDevice = () => {
   goToNextSlide: (event: GestureResponderEvent) => void;
-  swiperRef: React.MutableRefObject<null>;
+  swiperRef: React.MutableRefObject<Swiper | null>;
   selectedIndex: number;
   setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
   deviceName: string;
