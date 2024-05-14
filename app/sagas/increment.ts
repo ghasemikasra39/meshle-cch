@@ -1,7 +1,7 @@
 import {delay, put, takeEvery} from 'redux-saga/effects';
 import {increment, incrementBy} from '../features/test/testSlice';
 import {IncrementAsync, IncrementBuf} from './types';
-import {unpackBuffer} from '../helpers/buffer';
+// import {unpackBuffer} from '../helpers/buffer';
 import {IncrementStruct} from '../structs/increment';
 
 export function* incrementAsync() {
@@ -13,7 +13,7 @@ export function* incrementAsync() {
 
 export function* incrementBuf() {
   yield takeEvery<IncrementBuf>('INCREMENT_BUF', function* ({buffer}) {
-    const json = unpackBuffer(IncrementStruct, buffer);
-    yield put(incrementBy(json.value));
+    // const json = unpackBuffer(IncrementStruct, buffer);
+    // yield put(incrementBy(json.value));
   });
 }

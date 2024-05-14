@@ -10,7 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@meshle/meshle-typebase": "^1.1.2",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@reduxjs/toolkit": "^2.2.3",

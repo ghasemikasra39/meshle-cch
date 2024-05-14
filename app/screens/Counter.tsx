@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from '../hooks';
 import {decrement, increment, selectCounter} from '../features/test/testSlice';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {RootStackScreenProps} from './types';
-import {packBuffer} from '../helpers/buffer';
+// import {packBuffer} from '../helpers/buffer';
 import {IncrementAsync, IncrementBuf} from '../sagas/types';
 import {IncrementStruct} from '../structs/increment';
 
@@ -24,19 +24,19 @@ export const Counter = (_: Props) => {
           title="Increment Async"
           onPress={() => dispatch<IncrementAsync>({type: 'INCREMENT_ASYNC'})}
         />
-        <Button
-          title="Increment Buffer"
-          onPress={() =>
-            dispatch<IncrementBuf>({
-              type: 'INCREMENT_BUF',
-              buffer: packBuffer(IncrementStruct, {
-                value: 10,
-                reserved1: '8',
-                reserved0: '8',
-              }).toString('base64'),
-            })
-          }
-        />
+        {/*<Button*/}
+        {/*  title="Increment Buffer"*/}
+        {/*  onPress={() =>*/}
+        {/*    dispatch<IncrementBuf>({*/}
+        {/*      type: 'INCREMENT_BUF',*/}
+        {/*      buffer: packBuffer(IncrementStruct, {*/}
+        {/*        value: 10,*/}
+        {/*        reserved1: '8',*/}
+        {/*        reserved0: '8',*/}
+        {/*      }).toString('base64'),*/}
+        {/*    })*/}
+        {/*  }*/}
+        {/*/>*/}
       </View>
     </View>
   );
