@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 100,
+    marginBottom: 50,
   },
   nextButton: {borderRadius: 10, width: 150},
 });

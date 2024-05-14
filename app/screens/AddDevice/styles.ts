@@ -24,6 +24,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonWrapper: {
-    marginBottom: 70, // Adjust based on your layout
+    marginBottom: 70,
   },
 });
