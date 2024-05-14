@@ -12,6 +12,12 @@ import {IncrementStruct} from '../../structs/increment';
 import {styles} from './styles.ts';
 import {AddDeviceProps} from './types.ts';
 import Swiper from 'react-native-swiper';
+import {
+  DeviceTypeSlide,
+  DoneSlide,
+  LoadingSlide,
+  NameSlide,
+} from '../../components/Slider';
 
 export const AddDevice = (_: AddDeviceProps) => {
   const counter = useAppSelector(selectCounter);
@@ -19,41 +25,25 @@ export const AddDevice = (_: AddDeviceProps) => {
   const swiperRef = useRef(null);
 
   const goToNextSlide = () => {
-    swiperRef.current.scrollBy(1);
+    swiperRef?.current?.scrollBy(1);
   };
   return (
     <Swiper
       ref={swiperRef}
       style={styles.wrapper}
-      showsButtons={false} // Hide the default buttons
-      loop={false} // Prevent looping to the first slide
-    >
+      showsButtons={false}
+      loop={false}>
       <View style={styles.slide}>
-        <Text style={styles.text}>Welcome</Text>
-        <View style={styles.buttonWrapper}>
-          <Button title="Next" onPress={goToNextSlide} />
-        </View>
+        <DeviceTypeSlide goToNextSlide={goToNextSlide} />
       </View>
       <View style={styles.slide}>
-        <Text style={styles.text}>Discover Features</Text>
-        <View style={styles.buttonWrapper}>
-          <Button title="Next" onPress={goToNextSlide} />
-        </View>
+        <NameSlide goToNextSlide={goToNextSlide} />
       </View>
       <View style={styles.slide}>
-        <Text style={styles.text}>Stay Connected</Text>
-        <View style={styles.buttonWrapper}>
-          <Button title="Next" onPress={goToNextSlide} />
-        </View>
+        <LoadingSlide goToNextSlide={goToNextSlide} />
       </View>
       <View style={styles.slide}>
-        <Text style={styles.text}>Get Started</Text>
-        <View style={styles.buttonWrapper}>
-          <Button
-            title="Finish"
-            onPress={() => alert('Onboarding Complete!')}
-          />
-        </View>
+        <DoneSlide goToNextSlide={goToNextSlide} />
       </View>
     </Swiper>
   );
