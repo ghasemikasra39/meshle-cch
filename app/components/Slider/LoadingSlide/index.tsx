@@ -3,7 +3,7 @@ import {Button} from '@rneui/themed';
 import React from 'react';
 import {LoadingSlideProps} from './types.ts';
 
-export const LoadingSlide = ({goToNextSlide}: LoadingSlideProps) => {
+export const LoadingSlideComponent = ({goToNextSlide}: LoadingSlideProps) => {
   return (
     <View>
       <Text>Loading Slide</Text>
@@ -11,3 +11,5 @@ export const LoadingSlide = ({goToNextSlide}: LoadingSlideProps) => {
     </View>
   );
 };
+
+export const LoadingSlide = React.memo(LoadingSlideComponent);

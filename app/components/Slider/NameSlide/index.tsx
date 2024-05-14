@@ -3,7 +3,7 @@ import {Button} from '@rneui/themed';
 import React from 'react';
 import {NameSlideProps} from './types.ts';
 
-export const NameSlide = ({goToNextSlide}: NameSlideProps) => {
+export const NameSlideComponent = ({goToNextSlide}: NameSlideProps) => {
   return (
     <View>
       <Text>Device Name Slide</Text>
@@ -11,3 +11,5 @@ export const NameSlide = ({goToNextSlide}: NameSlideProps) => {
     </View>
   );
 };
+
+export const NameSlide = React.memo(NameSlideComponent);

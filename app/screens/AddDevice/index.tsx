@@ -1,10 +1,5 @@
-import React, {useRef} from 'react';
-import {useAppDispatch, useAppSelector} from '../../hooks';
-import {
-  decrement,
-  increment,
-  selectCounter,
-} from '../../features/test/testSlice';
+import React, {useState} from 'react';
+import {decrement, increment} from '../../features/test/testSlice';
 import {Button, Text, View} from 'react-native';
 import {packBuffer} from '../../helpers/buffer';
 import {IncrementAsync, IncrementBuf} from '../../sagas/types';
@@ -18,15 +13,13 @@ import {
   LoadingSlide,
   NameSlide,
 } from '../../components/Slider';
+import {useAddDevice} from './hooks/useAddDevice';
+
+const BUTTON_GROUP = ['HSV Device', 'Switch Device'];
 
 export const AddDevice = (_: AddDeviceProps) => {
-  const counter = useAppSelector(selectCounter);
-  const dispatch = useAppDispatch();
-  const swiperRef = useRef(null);
-
-  const goToNextSlide = () => {
-    swiperRef?.current?.scrollBy(1);
-  };
+  const {goToNextSlide, swiperRef} = useAddDevice();
+  const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <Swiper
       ref={swiperRef}
@@ -34,7 +27,12 @@ export const AddDevice = (_: AddDeviceProps) => {
       showsButtons={false}
       loop={false}>
       <View style={styles.slide}>
-        <DeviceTypeSlide goToNextSlide={goToNextSlide} />
+        <DeviceTypeSlide
+          buttons={BUTTON_GROUP}
+          goToNextSlide={goToNextSlide}
+          selectedIndex={selectedIndex}
+          setSelectedIndex={setSelectedIndex}
+        />
       </View>
       <View style={styles.slide}>
         <NameSlide goToNextSlide={goToNextSlide} />

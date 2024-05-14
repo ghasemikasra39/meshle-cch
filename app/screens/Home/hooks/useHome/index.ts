@@ -1,7 +1,8 @@
 import {useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {UseHome} from './types.ts';
 
-export const useHome = () => {
+export const useHome: UseHome = () => {
   const navigation = useNavigation();
 
   const onAddDeviceHandler = useCallback(

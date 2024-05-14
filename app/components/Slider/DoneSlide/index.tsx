@@ -3,7 +3,7 @@ import {Button} from '@rneui/themed';
 import React from 'react';
 import {DoneSlideProps} from './types.ts';
 
-export const DoneSlide = ({goToNextSlide}: DoneSlideProps) => {
+export const DoneSlideComponent = ({goToNextSlide}: DoneSlideProps) => {
   return (
     <View>
       <Text>Done Slide</Text>
@@ -11,3 +11,5 @@ export const DoneSlide = ({goToNextSlide}: DoneSlideProps) => {
     </View>
   );
 };
+
+export const DoneSlide = React.memo(DoneSlideComponent);
