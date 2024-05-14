@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {decrement, increment} from '../../features/test/testSlice';
 import {Button, Text, View} from 'react-native';
 import {packBuffer} from '../../helpers/buffer';
@@ -9,7 +9,6 @@ import {AddDeviceProps} from './types.ts';
 import Swiper from 'react-native-swiper';
 import {
   DeviceTypeSlide,
-  DoneSlide,
   LoadingSlide,
   NameSlide,
 } from '../../components/Slider';
@@ -50,9 +49,6 @@ export const AddDevice = (_: AddDeviceProps) => {
       </View>
       <View style={styles.slide}>
         <LoadingSlide goToNextSlide={goToNextSlide} />
-      </View>
-      <View style={styles.slide}>
-        <DoneSlide goToNextSlide={goToNextSlide} />
       </View>
     </Swiper>
   );

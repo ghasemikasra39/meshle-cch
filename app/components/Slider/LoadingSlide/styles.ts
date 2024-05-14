@@ -3,16 +3,10 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 250,
     margin: 15,
+    alignItems: 'center',
   },
-  header: {textAlign: 'center'},
-  buttonGroupContainerStyle: {
-    height: 50,
-    width: '80%',
-    borderRadius: 10,
-    marginTop: 10,
-  },
-  buttonGroupButtonStyle: {padding: 10},
   nextButtonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
