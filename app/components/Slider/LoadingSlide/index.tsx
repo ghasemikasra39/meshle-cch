@@ -1,14 +1,18 @@
 import {ActivityIndicator, View} from 'react-native';
 import {Button, Text} from '@rneui/themed';
-import React, {useState} from 'react';
+import React from 'react';
 import {LoadingSlideProps} from './types.ts';
 import {styles} from './styles.ts';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../store.ts';
+import {useNavigation} from '@react-navigation/native';
 
 const BUTTON_TITLE_LOADING = 'Saving ...';
 const BUTTON_TITLE_Done = 'Done';
 
-export const LoadingSlideComponent = ({goToNextSlide}: LoadingSlideProps) => {
-  const [loading, setLoading] = useState(true);
+export const LoadingSlideComponent = (_: LoadingSlideProps) => {
+  const navigation = useNavigation();
+  const loading = useSelector((state: RootState) => state.devices.addingDevice);
   return (
     <View style={styles.container}>
       {loading ? (
@@ -21,7 +25,7 @@ export const LoadingSlideComponent = ({goToNextSlide}: LoadingSlideProps) => {
       <View style={styles.nextButtonContainer}>
         <Button
           title={loading ? BUTTON_TITLE_LOADING : BUTTON_TITLE_Done}
-          onPress={goToNextSlide}
+          onPress={() => navigation.navigate('Home')}
           buttonStyle={styles.nextButton}
           disabled={loading}
         />

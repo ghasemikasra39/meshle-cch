@@ -1,30 +1,29 @@
 import {FlatList} from 'react-native';
 import React, {useCallback} from 'react';
 import {DeviceItem} from './DeviceItem';
-
-// this will come from redux
-const DATA = [
-  {id: '1', title: 'Switch Button 1', buttons: ['On', 'Off'], isOn: false},
-  {id: '2', title: 'HSV Device 1', buttons: ['On', 'Off'], isOn: true},
-];
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from '../../store.ts';
+import {toggleDevice} from '../../features/devices/devicesSlice.ts';
 
 const AddedDevicesListComponent = () => {
+  const dispatch = useDispatch();
+  const devices = useSelector((state: RootState) => state.devices.devices);
+
   const setSelectedIndexHandler = useCallback(
-    (deviceId: string, index: number) => {
-      console.log('✅ device Id', deviceId);
-      console.log('✅ index', index);
+    (deviceId: string, _: number) => {
+      dispatch(toggleDevice(deviceId));
     },
-    [],
+    [dispatch],
   );
 
   return (
     <FlatList
-      data={DATA}
+      data={devices}
       keyExtractor={item => item.id}
       renderItem={({item}) => (
         <DeviceItem
           id={item.id}
-          title={item.title}
+          title={item.name}
           isOn={item.isOn}
           setSelectedIndex={setSelectedIndexHandler}
         />

@@ -5,10 +5,10 @@ import {NameSlideProps} from './types.ts';
 import {styles} from './styles.ts';
 
 const HEADER_TITLE = 'What is the device name?';
-const BUTTON_TITLE = 'Next';
+const BUTTON_TITLE = 'Add Device';
 
 export const NameSlideComponent = ({
-  goToNextSlide,
+  onAddDevice,
   deviceName,
   setDeviceName,
 }: NameSlideProps) => {
@@ -32,7 +32,7 @@ export const NameSlideComponent = ({
       <View style={styles.nextButtonContainer}>
         <Button
           title={BUTTON_TITLE}
-          onPress={goToNextSlide}
+          onPress={onAddDevice}
           buttonStyle={styles.nextButton}
         />
       </View>

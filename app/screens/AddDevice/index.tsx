@@ -20,6 +20,7 @@ export const AddDevice = (_: AddDeviceProps) => {
     setSelectedIndex,
     deviceName,
     setDeviceName,
+    onAddDevice,
   } = useAddDevice();
 
   return (
@@ -38,7 +39,7 @@ export const AddDevice = (_: AddDeviceProps) => {
       </View>
       <View style={styles.slide}>
         <NameSlide
-          goToNextSlide={goToNextSlide}
+          onAddDevice={onAddDevice}
           deviceName={deviceName}
           setDeviceName={setDeviceName}
         />
